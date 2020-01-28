@@ -16,12 +16,13 @@ public class Main {
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		Session session=factory.openSession();
 		Transaction t=session.beginTransaction();
-		Student s=new Student();
-		s.setSid(67);
-		s.setSname("hello");
-		int count=(int)session.save(s);
-		t.commit();
-	System.out.println(count+"rows updated");
+		String sql="DELETE FROM Student WHERE sid=103";
+	   Query query=session.createQuery(sql);
+	   int row=query.executeUpdate();
+	    if(row==0)
+	    System.out.println("does not deleted any row");
+	    else
+	    	System.out.println("Deleted row:"+row);
 	}
 
 }
