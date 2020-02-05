@@ -1,11 +1,15 @@
 package com.demo;
 
+import com.demo.model.LoginPojo;
+
 public class LoginService {
-  public String validateLogin(String userName,String password)
+  public LoginPojo validateLogin(LoginPojo loginpojo)
   {
 	  
 	  LoginDao logindao = new LoginDao();
-		String result=logindao.validateLogin(userName,password);
+	 // LoginPojo loginpojo =logindao.validateLogin(loginpojo);
+	  loginpojo=logindao.validateLogin(loginpojo);
+		System.out.println(loginpojo);
 	 /* String result=null;
 	  if(userName.equals("admin") && password.equals("admin"))
 	  {
@@ -16,7 +20,7 @@ public class LoginService {
 	  {
 	  result = "failure";
 	  }*/
-	  return result;
+	  return loginpojo;
 	  
 	  
   }
