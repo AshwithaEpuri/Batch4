@@ -1,38 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DisplayComponent } from './display/display.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { RegisterComponent } from './register/register.component';
-import { MovieListComponent } from './movies/movie-list/movie-list.component';
-import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
+import { ItemListComponent } from './eMart1/item/item-list/item-list.component';
+import { ItemDisplayComponent } from './eMart1/item/item-display/item-display.component';
+import { CartListComponent } from './eMart1/cart/cart-list/cart-list.component';
+import { BillListComponent } from './eMart1/bill/bill-list/bill-list.component';
+import { BillViewComponent } from './eMart1/bill/bill-view/bill-view.component';
+import { LoginComponent } from './eMart1/signup/login/login.component';
 
 
 const routes: Routes = [{
-                         path:'display',
-                         component:DisplayComponent
-                        },
-                        {
-                          path:'employee',
-                          component:EmployeeComponent
-                        },
-                        {
-                          path:'register',
-                          component:RegisterComponent
-                        
-                        },
+  path: 'item-display/:iId',
+  component: ItemDisplayComponent
+},
+{
+  path: 'item-list',
+  component: ItemListComponent
+},
+{
+  path: 'cart-list',
+  component: CartListComponent
+},
+{
+  path: 'bill-view',
+  component: BillViewComponent
+},
 
-                        {
-                          path:'movie-list',
-                          component:MovieListComponent
-                        
-                        },
+{
+  path: 'bill-list',
+  component: BillListComponent
+},
+{
+ path:'login',
+ component: LoginComponent
+}
 
-                        {
-                          path:'movie-edit',
-                          component:MovieEditComponent
-                        
-                        }
-                      ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
